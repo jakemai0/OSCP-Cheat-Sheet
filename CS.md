@@ -354,7 +354,9 @@ https://github.com/21y4d/Notes/blob/master/Pivoting.txt
 ```
 https://gtfobins.github.io/
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
+
 LinPEAS.sh
+
 https://github.com/sagishahar/lpeworkshop
 https://in.security/lin-security-walkthrough/
 https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
@@ -367,10 +369,13 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 -WIP
 ```
 Nishang
+
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
+
 WinPEAS.exe
+
 https://github.com/sagishahar/lpeworkshop
 https://github.com/411Hall/JAWS
 https://steflan-security.com/?p=474
