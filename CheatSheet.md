@@ -72,6 +72,9 @@ nmblookup -A $RHOST
 List Shares
 ```
 smbmap -H $RHOST
+smbmap -u anonymous -p anonymous -H $RHOST
+
+
 smbclient -L \\\\$RHOST
 nmap --script smb-enum-shares -p 139,445 $RHOST
 ```
@@ -81,8 +84,6 @@ Check Null Sessions
 rpcclient -U "" -N $RHOST
 -U "" :null session
 -N    :no password
-
-smbmap -u anonymous -p anonymous -H $RHOST
 ```
 
 Connect to Shares
