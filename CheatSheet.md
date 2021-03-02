@@ -299,9 +299,7 @@ ssh keys, logs file (if got permission), /etc/passwd, /opt, cronjob
 
 
 ## Some notes:
-Member of (adm) group can read log files
-  Cron logs are stored at: /var/log/cron.log*
-  Cronjob entries are stored at: /var/log/syslog
+
 Some file extensions that can potentially bypass extension check:
 PHP: phtml, php3, php4, php5, .inc
 ASP: aspx
@@ -360,17 +358,72 @@ Upload and modify POST request with Burp
 https://sushant747.gitbooks.io/total-oscp-guide/content/port_forwarding_and_tunneling.html
 https://github.com/21y4d/Notes/blob/master/Pivoting.txt
  
+## Breaking out of a Restricted Shell:
+https://www.exploit-db.com/docs/english/44592-linux-restricted-shell-bypass-guide.pdf
 
 
-## Linux Privilege Escalation
+## Linux Privilege Escalation/Post Exploitation
 ```diff
 - WIP
 ```
-https://gtfobins.github.io/
+Check for hidden files
+
+Check for current Environment Variables
+
+Check for unprotected SSH private key, or can we add our public key to authorized_keys
+
+Check ```sudo -l``` for things that can be run privileges, with or without password
+
+Look for any suspicious files in common places (```/home``` or ```/var/www/html```)
+
+Check ```id```
+
+Auto enumerate with ```linPEAS.sh```
+
+Check current running processes that are owned by root with: ```ps aux | grep root```
+
+Check if we're inside a Docker container, to break out out of a Docker container:
+https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout
+
+Check for services running/listening locally ```ss -lntp```
+
+Check for cronjobs and cronjob logs:
+Member of (adm) group can read log files
+  Cron logs are stored at: /var/log/cron.log*
+  Cronjob entries are stored at: /var/log/syslog
+
+Check for unusual SUID binaries, investigate further with: https://gtfobins.github.io/
+Run ```strace``` ```ltrace``` for detailed analysis of the binaries
+Unpack with Ghidra
+
+Check for installed applications, their versions, any known exploits?
+
+With any fishy or suspicious running services, Google for potential priv-es vectors
+
+Check for any root owned files that are writable
+
+Check for history files (.bash_history, php_history...)
+Check if /etc/passwd, .bashrc are writable
+
+Check for writable libraries for potential library import hijack (eg: in Python, import os, check if os library is writable)
+
+Check for file path (relative vs absolute path) --> potential path hijack
+
+Check for config files (.conf), potential database password in .conf files, writable .conf files?
+
+If tmux is installed, check for any shell session that we can hijack
+```
+tmux ls; tmux attach -t tmuxname; screen -ls; screen-dr sessionname; byobu list-session;
+```
+
+If NFS is open, check for NFS shares and mount them
+```
+showmount -e $RHOST; mount $RHOST:/ /tmp/
+```
+
+Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a```
+
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
-
-LinPEAS.sh
-
 https://github.com/sagishahar/lpeworkshop
 https://in.security/lin-security-walkthrough/
 https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
@@ -378,7 +431,7 @@ https://steflan-security.com/?p=283
 https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 
-## Windows Privilege Escaltion
+## Windows Privilege Escaltion/Post Exploitation
 ```diff
 -WIP
 ```
