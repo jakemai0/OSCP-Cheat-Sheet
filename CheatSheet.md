@@ -89,6 +89,11 @@ Connect to Shares
 ```
 smbclient \\\\$RHOST\\<Sharename>
 ```
+Connect to Share with credentials
+```
+smbclient \\\\$RHOST\\<Sharename> -U=username%'password'
+```
+
 Can attempt to connect with blank password
 
 Overall Scan
