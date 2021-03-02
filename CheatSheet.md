@@ -435,6 +435,16 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 ```diff
 -WIP
 ```
+Check permission with ```whoami /all```
+
+Check general host information with ```systeminfo; net users; netstat -ano; ipconfig /all; tasklist```
+
+
+
+Auto enumerate with ```winPEAS.exe```
+
+Check loaded libraries --> potential DLL hijacking
+
 Execute command remotely on Windows via SMB Creds with winexe or psexec.py
 ```
 winexe -U 'user%password' //$RHOST powershell.exe
