@@ -457,6 +457,7 @@ https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#p
 
 WinPEAS.exe
 
+https://butter0verflow.github.io/oscp/OSCP-WindowsPrivEsc-Part1/
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
 https://infosecwriteups.com/privilege-escalation-in-windows-380bee3a2842
