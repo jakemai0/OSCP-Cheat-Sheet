@@ -451,14 +451,15 @@ winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 
-Nishang
-
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
 
 WinPEAS.exe
 
+https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
+https://infosecwriteups.com/privilege-escalation-in-windows-380bee3a2842
 https://github.com/sagishahar/lpeworkshop
 https://github.com/411Hall/JAWS
 https://steflan-security.com/?p=474
