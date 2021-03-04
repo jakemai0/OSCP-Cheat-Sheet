@@ -354,10 +354,22 @@ Crack with john using ssh2john.py module:
 ```
 python ssh2john.py ssh.key > key.key
 ```
-Then use john to brute force the SSH key phrase:
+Then use john to brute force the SSH key phrase: (requires john 1.9 Jumbo)
 ```
 john --wordlist=rockyou.txt key.key
 ```
+
+### Decrypt a .kdbx (KeePass file)
+Crack with keepass2john.py module
+```
+python keypass2john.py ceh.kdbx > hash.txt
+```
+Then use john to brute force the Hash: (requires john 1.9 Jumbo)
+```
+john --wordlist=rockyou.txt hash.txt
+```
+
+
 ### Spoof a file signature
 Spoof a php file with a png image
 Grab PNG magic bytes (first 64 bytes)
