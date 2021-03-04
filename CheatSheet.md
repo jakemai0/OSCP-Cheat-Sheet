@@ -480,6 +480,8 @@ winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 
+If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe
+
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
