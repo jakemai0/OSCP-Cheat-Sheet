@@ -252,7 +252,6 @@ When SQLi is possible, if n+1 does not return anything, n is the number of colum
 php?xxx=1 order by n
 ```
 
-
 Dump MySQL DB:
 ```
 mysqldump -u username -p DBname > dump.sql
