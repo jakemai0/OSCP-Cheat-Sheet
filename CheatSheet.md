@@ -465,7 +465,7 @@ If NFS is open, check for NFS shares and mount them
 showmount -e $RHOST; mount $RHOST:/ /tmp/
 ```
 
-Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a```
+Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a``` (<4.8.3)
 
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
 https://github.com/sagishahar/lpeworkshop
