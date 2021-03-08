@@ -513,6 +513,7 @@ pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 ```icacls "$PATH" /grant $USER:F /T```
 
 **Check for unquoted service path:**
+
 If the path contains a space and is not quoted, the service is vulnerable.
 E.g.:
 ```C:\Program Files\Box\run.exe```
