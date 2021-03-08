@@ -495,7 +495,7 @@ Auto enumerate with ```winPEAS.exe```
 
 Check loaded libraries --> potential DLL hijacking
 
-Execute command remotely on Windows via SMB Creds with winexe or psexec.py
+Execute command remotely on Remote Windows target via SMB Creds with winexe or psexec.py from Local Kali machine
 ```
 winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
