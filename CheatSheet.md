@@ -506,6 +506,13 @@ If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe
 pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 ```
 
+To view Access Control List of a directory:
+```Get-ACL $FILEPATH | fl *```
+
+Can set ACL with:
+```icacls "$PATH" /grant $USER:F /T```
+
+
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
