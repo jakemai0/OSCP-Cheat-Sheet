@@ -408,6 +408,8 @@ https://github.com/21y4d/Notes/blob/master/Pivoting.txt
  
 ## Breaking out of a Restricted Shell:
 https://www.exploit-db.com/docs/english/44592-linux-restricted-shell-bypass-guide.pdf
+Also
+```ssh -i key.pem user@$RHOST -t bash --noprofile```
 
 
 ## Linux Privilege Escalation/Post Exploitation
