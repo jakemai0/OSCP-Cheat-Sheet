@@ -512,6 +512,13 @@ To view Access Control List of a directory:
 Can set ACL with:
 ```icacls "$PATH" /grant $USER:F /T```
 
+Check for unquoted service path:
+If the path contains a space and is not quoted, the service is vulnerable.
+E.g.:
+```C:\Program Files\Box\run.exe```
+
+It can be exploited by dropping a payload called ```program.exe``` on ```C:\program.exe```
+Payload can be generated with ```msfvenom```, once the service is manually restarted or after rebooting, ```program.exe``` will be executed.
 
 https://github.com/M4ximuss/Powerless
 https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
