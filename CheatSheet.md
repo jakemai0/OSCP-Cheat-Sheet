@@ -355,6 +355,13 @@ Find all files owned by an user:
 find / -username -exec ls -l {} \; 2>/dev/null
 ```
 
+### Inject commands without white spaces:
+**Using bash brace expansion**\
+```{echo,hello,world}``` equals ```echo hello world```\
+**Using env variable with encoded spaces**\
+```CMD=$'\x20hello\x20wolrd';echo$CMD``` equals ```echo hello world``` with ```\x20``` is hex code for white space
+
+
 ### Hashcat:
 Use hashcat rule to generate a list of variation of a common word:
 ```
