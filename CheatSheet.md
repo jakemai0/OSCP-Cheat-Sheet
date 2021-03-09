@@ -487,7 +487,7 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 ```
 **Check permission with** ```whoami /all```
 
-**Check general host information with** ```systeminfo; net users; netstat -ano; ipconfig /all; tasklist```
+**Check general host information with** ```systeminfo; net users; net localgroups; netstat -ano; ipconfig /all; tasklist```
 
 
 
