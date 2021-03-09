@@ -121,8 +121,8 @@ or with dirsearch
 ```
 dirsearch -w ./SecLists/Discovery/Web-Content/raft-medium-words.txt -e <file extension> -u $RHOST
 ```
-Common file extension for Linux: php,html,js,sh,txt,jsp,pl
-Common file extension for Windows: php,asp,js,html,text,aspx,bak
+Common file extension for Linux: php,html,js,sh,txt,jsp,pl\
+Common file extension for Windows: php,asp,js,html,text,aspx,bak\
 -k can be added to bypass TLS
 
 ### DNS sub-domain brute force with Gobuster
@@ -452,7 +452,7 @@ With any fishy or suspicious running services, Google for potential priv-es vect
 
 Check for any root owned files that are writable
 
-Check for history files (.bash_history, php_history...)
+Check for history files (.bash_history, php_history...)\
 Check if /etc/passwd, .bashrc are writable
 
 Check for writable libraries for potential library import hijack (eg: in Python, import os, check if os library is writable)
@@ -514,12 +514,12 @@ pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 
 **Check for unquoted service path:**
 
-If the path contains a space and is not quoted, the service is vulnerable.
+If the path contains a space and is not quoted, the service is vulnerable.\
 E.g.:
 ```C:\Program Files\Box\run.exe```
 
 
-It can be exploited by dropping a payload called ```program.exe``` on ```C:\program.exe```
+It can be exploited by dropping a payload called ```program.exe``` on ```C:\program.exe```\
 Payload can be generated with ```msfvenom```, once the service is manually restarted or after rebooting, ```program.exe``` will be executed.
 
 
@@ -540,7 +540,9 @@ What is Access Token: https://book.hacktricks.xyz/windows/windows-local-privileg
 
 Check if any of these access tokens are enabled:
 
-SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato\nSeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\nSeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
+SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato\
+SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\
+SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens\
 etc.
 
 
