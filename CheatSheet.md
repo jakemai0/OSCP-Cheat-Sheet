@@ -541,6 +541,7 @@ What is Access Token: https://book.hacktricks.xyz/windows/windows-local-privileg
 Check if any of these access tokens are enabled:
 
 SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato
+
 SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato
 SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
 etc.
