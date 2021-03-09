@@ -340,7 +340,7 @@ JSP: jspx, jsw, jsv, jspf
 
 
 On Windows machines, files can be hidden on different data streams ($DATA and $INDEX_LOCATION), reveal with ```dir /r``` and show content with more < $FILENAME:STREAM\
-Connect to Microsoft SQL Database from local Kali machine with ```mssqlclient.py``` from python-impacket\ 
+Connect to **Microsoft SQL Database** from local Kali machine with ```mssqlclient.py``` from python-impacket 
 
 
 Find all SUID files:
