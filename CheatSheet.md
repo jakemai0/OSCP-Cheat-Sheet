@@ -141,6 +141,10 @@ nikto -h $RHOST
 wpscan --url $RHOST -e vt,tt,u,ap
 ```
 
+### Tomcat Apache server
+If the server is running Apache Tomcat (check for version obviously)\
+Always check for ```/admin```, ```/manager``` and ```/manager/html``` to see if we can upload and deploy ```.war``` files.
+
 
 ## Shell Upgrading
 ```
