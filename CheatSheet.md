@@ -249,6 +249,24 @@ From the MSSQL console:
 The responder listener will capture the NTMLv2 hash of the Windows target machine with this request -> can possibly crack this hash with ```john``` or ```hashcat```
 
 
+## Crack Windows Auth Hash
+### LM Hash:
+```john --format=lm --wordlist=rockyou.txt hash.txt```\
+```hashcat-m 3000 -a 3 hash.txt rockyou.txt```
+
+### NT Hash:
+```john --format=nt --wordlist=rockyou.txt hash.txt```\
+```hashcat -m 1000 -a 3 hash.txt rockyou.txt```
+
+### NTLMv1:
+```john --format=netntlm --wordlist=rockyou.txt hash.txt```\
+```hashcat -m 5500 -a 3 hash.txt rockyou.txt```
+
+### NTLMv2:
+```john --format=netntlmv2 --wordlist=rockyou.txt hash.txt```\
+```hashcat -m 5600 -a 3 hash.txt```
+
+
 ## SQL Injection
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
 ```diff
