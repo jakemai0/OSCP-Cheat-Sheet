@@ -528,7 +528,7 @@ If NFS is open, check for NFS shares and mount them
 showmount -e $RHOST; mount $RHOST:/ /tmp/
 ```
 
-Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a``` (<4.8.3)/
+Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a``` (<4.8.3)\
 If DirtyCow doesn't work, try googling with the specific kernel version.
 
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
