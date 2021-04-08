@@ -113,6 +113,12 @@ snmpwalk -v1 -c public $RHOST
 https://book.hacktricks.xyz/pentesting/pentesting-snmp
 
 
+### Redis - 6379
+
+Gain RCE via SSH: https://m0053sec.wordpress.com/2020/02/13/redis-remote-code-execution-rce/
+Other vectors: https://book.hacktricks.xyz/pentesting/6379-pentesting-redis
+
+
 ### HTTP directory brute force with Gobuster
 ```
 gobuster dir -w ./SecLists/Discovery/Web-Content/raft-medium-words.txt -x <file extension> -u $RHOST
