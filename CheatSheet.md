@@ -421,6 +421,9 @@ Check for current running processes:
 ```
 ps aux
 ```
+
+Check for conf file of a running software/service in: ```/etc/<service>/*.conf```
+
 Check for current network connections:
 ```
 ss -lntp
