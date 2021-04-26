@@ -612,6 +612,8 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 ```
 **Check permission with** ```whoami /all```
 
+**Execute command under another user with stored credentials:** ```runas /user:$USERNAME /savecred "$COMMAND HERE"```
+
 **Check general host information with** ```systeminfo; net users; net localgroups; netstat -ano; ipconfig /all; tasklist```
 
 
