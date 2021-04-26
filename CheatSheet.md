@@ -17,6 +17,7 @@ sudo nmap -sU --top-ports 1000 $RHOST
 ftp $RHOST
 nc -vn $RHOST 21
 ```
+To download ftp with wget: ```wget -m ftp://username:password@host``` or ```wget -r --no-passive ftp://username:password@host```
 Check for anonymous login
 Brute force login:
 ```
