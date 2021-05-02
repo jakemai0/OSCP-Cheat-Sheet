@@ -606,6 +606,9 @@ If NFS is open, check for NFS shares and mount them
 showmount -e $RHOST; mount $RHOST:/ /tmp/
 ```
 
+Abuse openssl capabilities (not limited to just openssl):
+https://www.bytefellow.com/linux-privilege-escalation-cheatsheet-for-oscp/#ftoc-exploiting-openssl-capability
+
 Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a``` (<4.8.3)\
 If DirtyCow doesn't work, try googling with the specific kernel version.
 
