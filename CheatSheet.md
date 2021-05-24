@@ -110,7 +110,7 @@ https://book.hacktricks.xyz/pentesting/pentesting-smb
 ```
 snmp-check $RHOST
 onesixtyone -c /usr/share/seclists/Discovery/SNMP/common-snmp-community-strings.txt $RHOST
-snmpwalk -v2 -c public $RHOST
+snmpwalk -v2c -c public $RHOST
 ```
 https://book.hacktricks.xyz/pentesting/pentesting-snmp
 
