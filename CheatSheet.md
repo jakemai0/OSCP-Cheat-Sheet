@@ -483,7 +483,11 @@ JSP: jspx, jsw, jsv, jspf
 On Windows machines, files can be hidden on different data streams ($DATA and $INDEX_LOCATION), reveal with ```dir /r``` and show content with more < $FILENAME:STREAM\
 With PowerShell: ```Get-Iteam -path %PATH%  -stream * ```\
 Search for Alternate Data Stream (ADS) with PowerShell: ```gci -recurse | % { gi $_.FullName -stream * } | where stream -ne ':$Data'```\
-In SMB Client: ```allinfo <FILENAME>```\
+In SMB Client: ```allinfo <FILENAME>``` -> output:\
+```stream: [::$DATA], 0 bytes```\
+```stream: [:Password:$DATA], 15 bytes```\
+```get "FILE:Password:$DATA"```
+
 Connect to **Microsoft SQL Database** from local Kali machine with ```mssqlclient.py``` from python-impacket 
 
 Run sudo command as another user:
