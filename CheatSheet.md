@@ -527,7 +527,8 @@ hashcat -m (mode) -a 0 hashdump plaintext
 ```
 hashcat -m hash.txt rockyou.txt
 ```
-Crack md5 hash: ```
+Crack md5 hash:
+```
 hashcat -m 0 hash.txt rockyou.txt
 ```
 
