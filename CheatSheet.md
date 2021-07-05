@@ -527,6 +527,9 @@ hashcat -m (mode) -a 0 hashdump plaintext
 ```
 hashcat -m hash.txt rockyou.txt
 ```
+```
+hashcat -m 0 hash.txt rockyou.txt
+``` Crack md5 hash\
 ### Decrypt encrypted SSH Key:
 ```
 -----BEGIN RSA PRIVATE KEY-----
