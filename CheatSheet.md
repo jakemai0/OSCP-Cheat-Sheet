@@ -679,6 +679,10 @@ winexe -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' //10.10.10.97 powershell.exe
 impacket-psexec $USERNAME:'$PASSWORD'@$RHOST powershell
 ```
 
+**Bypass Group Policy App Block - Applocker**\
+https://github.com/api0cradle/UltimateAppLockerByPassList
+
+
 **If WinRM (Windows Remote Management) is open, use evil-winrm with creds to gain access**\
 ```ruby /opt/evil-winrm/evil-winrm.rb -i 10.10.10.27 -u administrator -p '$PASSWORD'```
 
