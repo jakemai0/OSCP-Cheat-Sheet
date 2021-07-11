@@ -671,9 +671,7 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 
 ## Windows Privilege Escaltion/Post Exploitation
-```diff
--WIP
-```
+
 **Check permission with** ```whoami /all```
 
 **Execute command under another user with stored credentials:** ```runas /user:$USERNAME /savecred "$COMMAND HERE"```
