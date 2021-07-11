@@ -643,6 +643,8 @@ Check for file path (relative vs absolute path) --> potential path hijack
 
 Check for config files (.conf), potential database password in .conf files, writable .conf files?
 
+Check for readable backup files (/root, /tmp, /var/backups, etc.)
+
 If tmux is installed, check for any shell session that we can hijack
 ```
 tmux ls; tmux attach -t tmuxname; screen -ls; screen-dr sessionname; byobu list-session;
