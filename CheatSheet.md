@@ -606,7 +606,7 @@ Check for unprotected SSH private key, or can we add our public key to authorize
 
 Check ```sudo -l``` for things that can be run privileges, with or without password (if LD_PRELOAD, LD_LIBRARY_PATH env variables are listed) 
 
-Check for bash version (bash < 4.2-048 is possible to define user functions with absolute path name, which take precedence over any other path)
+Check for bash version (bash < 4.2-048 is possible to define user functions with absolute path name, which take precedence over any other path; if bash version is < 4.4, can change the SHELLOPTS=xtrace and the $PS4 would be running as root).
 
 Look for any suspicious files in common places (```/home``` or ```/var/www/html```)
 
