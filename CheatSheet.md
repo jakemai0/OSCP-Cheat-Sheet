@@ -595,9 +595,7 @@ Also
 
 
 ## Linux Privilege Escalation/Post Exploitation
-```diff
-- WIP
-```
+
 Check for hidden files
 
 Check for current Environment Variables
