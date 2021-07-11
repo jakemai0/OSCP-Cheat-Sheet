@@ -635,7 +635,7 @@ With any fishy or suspicious running services, Google for potential priv-es vect
 Check for any root owned files that are writable
 
 Check for history files (.bash_history, php_history...)\
-Check if /etc/passwd, .bashrc are writable
+Check if /etc/passwd, .bashrc, are writable, check if /etc/shadow is readable
 
 Check for writable libraries for potential library import hijack (eg: in Python, import os, check if os library is writable)
 
