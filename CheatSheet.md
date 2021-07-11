@@ -604,7 +604,9 @@ Check for current Environment Variables
 
 Check for unprotected SSH private key, or can we add our public key to authorized_keys
 
-Check ```sudo -l``` for things that can be run privileges, with or without password
+Check ```sudo -l``` for things that can be run privileges, with or without password (if LD_PRELOAD, LD_LIBRARY_PATH env variables are listed) 
+
+Check for bash version (bash < 4.2-048 is possible to define user functions with absolute path name, which take precedence over any other path)
 
 Look for any suspicious files in common places (```/home``` or ```/var/www/html```)
 
