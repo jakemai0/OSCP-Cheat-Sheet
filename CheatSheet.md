@@ -683,6 +683,8 @@ https://book.hacktricks.xyz/linux-unix/privilege-escalation
 
 **Auto enumerate with (enum script of choice here:)** ```winPEAS.exe```
 
+**If the payload is blocked by Defender, besides trying to encode and obfuscate it, consider try a custom one and re-compile the executable**
+
 **Check loaded libraries --> potential DLL hijacking <-- need to restart the service/reboot the machine**
 
 **Execute command remotely on Remote Windows target via SMB Creds with winexe or psexec.py from Local Kali machine**
