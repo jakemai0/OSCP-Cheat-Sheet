@@ -712,6 +712,19 @@ pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 **Can set ACL with:**
 ```icacls "$PATH" /grant $USER:F /T```
 
+**Service Commands** \
+Query the configuration of a service:\
+```sc qc <service name>``` \
+Query the current status of a service:\
+```sc query <service name>``` \
+Modify a configuration option of a service: \
+```sc config <service name> <option>= <value> ``` \
+Start/Stop a service: \
+```net start/top <service name>``` \
+
+
+
+
 **Check for unquoted service path:**
 
 If the path contains a space and is not quoted, the service is vulnerable.\
