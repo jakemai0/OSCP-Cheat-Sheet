@@ -741,6 +741,16 @@ When the service is restarted, ```Commom.exe``` will be executed.
 
 **Check for Weak Registry permission:** \
 Windows registry contains entries for services and have ACL. If the registry ACL can be configured => privilege escalation vector. \
+Verify permission with Get-ACL or icacls or accesschk. \
+NT AUTHORITY/INTERACTIVE GROUP = all local logged on users \
+Inspect the ImagePath with ```reg query``` command \
+Modify the ImagePath with ```reg add <original imagepath> \v ImagePath \t REG_EXPAND_SZ \d <new path to payload> \f ``` => restart the service. \
+
+**DLL Hijack** \
+If a DLL is loaded with an absolute path by a service with SYSTEM privilege => potential privilege escalation vector if the DLL is writable. \
+Monitor a process with ProcMon to see what DLLs are loaded by the process at run-time, look for missing DLLs for any DLL that are writable. \
+Replace or add a custom DLL (generated with msfvenom) in the location (if writable) => restart the service. \
+
 
 
 
