@@ -52,7 +52,7 @@ nmap -sV -p 111 --script=rpcinfo $RHOST
 ```
 If found NFS-related services, enumerate those.
 ```
-nmap -p 111 --script nfs* $RHOST
+nmap -p 111 --script="nfs*" $RHOST
 ```
 If NFS shares found, mount them and try to read/write or change permission by adding a new user with a certain UID.
 ```
