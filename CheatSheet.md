@@ -725,7 +725,7 @@ SERVICE_STOP, SERVICE_START => allow us to start/stop the service\
 SERVICE_CHANGE_CONFIG, SERVICE_ALL_ACCESS => allow us to modify the service config
 
 If we can change the config of a service with SYSTEM priv, we can change the executable of the service to use our custom executable. HOWEVER, we need the permission to start/stop the service. \
-Change the config path of a service, point it to the reverse shell payload: ```sc config <service name> binpath= "\"C:\Users\Public\rev.exe\"" ```, set up a listener and restart the service.
+Change the config path of a service, point it to the reverse shell payload: ```sc config <service name> binPath= "\"C:\Users\Public\rev.exe\"" ```, set up a listener and restart the service.
 
 
 **Check for unquoted service path:** \
