@@ -659,7 +659,7 @@ Set permission bits: ```chmod +xs /tmp/NFS/shell.elf``` \
 Run the payload on target machine => root acquired
 
 
-Abuse Linux capabilities (e.g: set_uid capabilities): \
+**Check for any Linux capabilities (e.g: set_uid capabilities):** \
 E.g: openssl capablities: \
 https://www.bytefellow.com/linux-privilege-escalation-cheatsheet-for-oscp/#ftoc-exploiting-openssl-capability
 
