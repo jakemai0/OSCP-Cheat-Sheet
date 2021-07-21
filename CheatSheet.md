@@ -757,6 +757,26 @@ Monitor a process with ProcMon to see what DLLs are loaded by the process at run
 Replace or add a custom DLL (generated with msfvenom) in the location (if writable) => restart the service. \
 
 
+**Check for Auto run program** \
+See if the exe and path is writable -> replace the exe with our payload. \
+
+**Check for AlwaysInstallElevated** \
+If AlwaysInstallElevated is detected, and both HKLM(HKCU)\SOFTWARE\Policies\Microsoft\Windows\Installer is set to 1: \
+We can craft a .msi payload and install it on the target Windows machine with SYSTEM privilege. \
+
+**Query for password in registry hive** \
+Check if the password is saved anywhere within the HKLM or HKCU hive: \
+```reg query HKCU /f password /t REG_SZ /s ``` \
+```reg query HKLM /f password /t REG_SZ /s``` \
+
+**Check for saved credentials** \
+If saved creds is found during enum -> ```runas /savecred /user:$USERNAME "$COMMAND"``` to run the command under the saved cred's privilege level. \
+
+
+**Check if SAM and SYSTEM registry hive are accessible** \
+If SAM and SYSTEM reg hive are accessible at C:\Windows\System32\config -> can extract the usernames and hashes with secretdump.py \
+Backups of these might be in C:\Windows\Repair or C:\Windows\System32\config\RegBack \
+If we can grab ntds.dit file => we can dump the whole AD database as well.\
 
 
 **If autologon credential is captured. We can try to log in as admin:**
