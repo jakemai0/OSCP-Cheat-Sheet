@@ -659,7 +659,8 @@ Set permission bits: ```chmod +xs /tmp/NFS/shell.elf``` \
 Run the payload on target machine => root acquired
 
 
-Abuse openssl capabilities (not limited to just openssl):
+Abuse Linux capabilities (e.g: set_uid capabilities): \
+E.g: openssl capablities: \
 https://www.bytefellow.com/linux-privilege-escalation-cheatsheet-for-oscp/#ftoc-exploiting-openssl-capability
 
 Last resort: Kernel Exploit! Check with linPEAS output or ```uname -a``` (<4.8.3)\
