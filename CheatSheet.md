@@ -808,6 +808,8 @@ SeImpersonatePrivilege: can be exploited with rottenpotato, juicypotato\
 SeAssignPrimaryPrivilege: can be exploited rottenpotato, juicypotato\
 SeBackupPrivilege: https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens\
 etc. \
+SeRestorePrivilege: grants write access to all objects on the system -> modify service binaries, overwrite DLLs used by SYSTEM processes, modify registry settings.\
+SeTakeOwnershipPrivilege: allows user to take ownership over an object (WRITE_OWNER permission). Once owned -> we can modify its ACL and grant us write access -> same as SeRestorePrivilege.\
 JuicyPotato won't work with Windows 10 1809 and Windows Server 2019 and above. Try **Rogue Potato** instead: \
 Transfer RoguePotato.exe over the target machine. \
 On local machine: 
