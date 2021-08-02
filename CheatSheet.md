@@ -751,6 +751,10 @@ Write a payload called ```Common.exe``` \
 When the service is restarted, ```Commom.exe``` will be executed.
 
 
+**Check for PowerShell history and Transscript**
+Credentials or information might be hidden in PowerShell history or PSTranscript files
+
+
 **Check for Weak Registry permission:** \
 Windows registry contains entries for services and have ACL. If the registry ACL can be configured => privilege escalation vector. \
 Verify permission with Get-ACL or icacls or accesschk. \
