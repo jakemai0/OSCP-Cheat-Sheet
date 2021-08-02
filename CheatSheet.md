@@ -752,7 +752,8 @@ When the service is restarted, ```Commom.exe``` will be executed.
 
 
 **Check for PowerShell history and Transscript**
-Credentials or information might be hidden in PowerShell history or PSTranscript files
+Credentials or information might be hidden in PowerShell history or PSTranscript files\
+Registry query for PowerShell transcritp:```gci -Path 'HKLM:\SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\PowerShell\Transcription'```
 
 
 **Check for Weak Registry permission:** \
