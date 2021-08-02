@@ -594,6 +594,12 @@ https://www.exploit-db.com/docs/english/44592-linux-restricted-shell-bypass-guid
 Also
 ```ssh -i key.pem user@$RHOST -t bash --noprofile```
 
+## Crackmapexec:
+```crackmapexec smb $RHOST -u $USERNAME -p $PASSWORD --continue-on-success ```: brute force smb\
+Can replace $USERNAME with list of users\
+Support multiple modules such as smb, winrm, ssh, mssql\
+Can append ```-X $command``` to execute command with a successful hit
+
 
 ## Linux Privilege Escalation/Post Exploitation
 
