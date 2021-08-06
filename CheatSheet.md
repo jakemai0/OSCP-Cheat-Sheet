@@ -404,6 +404,7 @@ php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mys
 
 ### MSSQL Injection:
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
+https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MSSQL%20-%20Error%20Based%20SQLi
 
 ### Blind/Boolean based SQL Injection:
 Read more: https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MySQL%20-%20Boolean%20Based%20Blind%20SQLi#mysql-boolean-based-blind-sql-injection-cheatsheet
