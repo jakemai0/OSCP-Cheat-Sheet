@@ -402,7 +402,7 @@ Show hostname, user, hashed password of a database from union SQLi:
 php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 ```
 
-### MSSQL Injection:
+### MSSQL Injection (error based):
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
 https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MSSQL%20-%20Error%20Based%20SQLi
 
