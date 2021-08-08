@@ -323,6 +323,9 @@ The responder listener will capture the NTMLv2 hash of the Windows target machin
 ```john --format=netntlmv2 --wordlist=rockyou.txt hash.txt```\
 ```hashcat -m 5600 -a 3 hash.txt```
 
+## File Inclusion:
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/README.md
+
 
 ## SQL Injection
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
