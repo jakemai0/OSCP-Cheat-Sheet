@@ -329,6 +329,7 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion
 
 ## SQL Injection
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
+https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 Simple SQL Injection Log In bypass
 Try a lot of them out:
