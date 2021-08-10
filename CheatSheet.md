@@ -364,7 +364,12 @@ Sample payloads:
 ```
 php?xxx=9999999 union select 1,2,3,4,5,n
 ```
-With n is the correct column amount, the page should populate results again, database() and user() can be replaced to reveal information about the database.
+Or
+```
+php?xxx=9999999' union select null,null,null,null,null,n
+```
+
+With n is the correct column amount, the page should populate results again, database() and user() can be replaced to reveal information about the database. Null is used because the value type returned from the injected SELECT query must be compatible between the original and the injected queries (NULL is convertible to every commonly used data type).
 
 Use group_concat() to display output of user(), database() and @@version in 1 line separate by “::”
 ```
