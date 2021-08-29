@@ -97,6 +97,11 @@ Connect to Share with credentials
 smbclient \\\\$RHOST\\<Sharename> -U=username%'password'
 ```
 
+Mount the share locally
+```
+sudo mount -t cifs//$RHOST/$SHARENAME ./smbShare
+```
+
 Can attempt to connect with blank password
 
 Overall Scan
