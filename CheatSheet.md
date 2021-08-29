@@ -107,6 +107,11 @@ To unmount
 sudo umount -l ./smbShare
 ```
 
+Remote download share
+```
+smbget -R smb://$RHOST/$SHARENAME
+```
+
 Can attempt to connect with blank password
 
 Overall Scan
