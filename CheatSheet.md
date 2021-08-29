@@ -102,6 +102,11 @@ Mount the share locally
 sudo mount -t cifs//$RHOST/$SHARENAME ./smbShare
 ```
 
+To unmount
+```
+sudo umount -l ./smbShare
+```
+
 Can attempt to connect with blank password
 
 Overall Scan
