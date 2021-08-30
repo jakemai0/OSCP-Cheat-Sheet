@@ -37,6 +37,15 @@ VRFY root
 VRFY jake
 ```
 
+User enum script:
+```
+sudo nmap -script="smtp-enum-users" -p 25 $RHOST
+```
+Or with smtp-user-enum:
+```
+smtp-user-enum -M VRFY -U ~/SecLists/Usernames/xato-net-10-million-usernames.txt -t $RHOST
+```
+
 ### DNS - 53 TCP/UDP
 If port 53 is on TCP -> check for Zone Transfer
 ```
