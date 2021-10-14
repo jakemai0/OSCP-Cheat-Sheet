@@ -767,6 +767,7 @@ Check for cronjobs and cronjob logs:
 Member of (adm) group can read log files
   Cron logs are stored at: /var/log/cron.log*
   Cronjob entries are stored at: /var/log/syslog
+  Check for cronjob at : /etc/crontab
 
 Check for unusual SUID binaries, investigate further with: https://gtfobins.github.io/
 Run ```strace``` ```ltrace``` for detailed analysis of the binaries
